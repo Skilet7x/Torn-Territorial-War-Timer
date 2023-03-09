@@ -68,6 +68,8 @@ def helpscreen():
 
 def menu():
     os.system('cls')
+    print("Torn Territorial War Timer")
+    print(" ........................ ")
     print("                                                  ")
     print(".1   START   1.")
     print(".2   HELP    2.")

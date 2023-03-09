@@ -36,8 +36,16 @@ def helpscreen():
     os.system('cls')
     print("")
     print("This is a simple script that helps you calculate the amount of time that will be needed to take a territory in Torn.")
+    print("")
+    print("Type anything to go back")
+    goback = input("<  ")
+    if goback == " ":
+        menu()
+    else:
+        menu()
 
 def menu():
+    os.system('cls')
     print("   ")
     print(".1   START   1.")
     print(".2   HELP    2.")

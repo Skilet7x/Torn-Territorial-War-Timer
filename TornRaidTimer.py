@@ -1,4 +1,3 @@
-import sys
 import os
 
 def execute():
@@ -15,10 +14,11 @@ def execute():
                 menu()
         else:
             pass
-        hours = int(points)/(int(counter)*3600)
+        days = int(points)/(int(counter)*86400)
+        hours = (days % 1)*24
         minutes = (hours % 1)*60
         seconds = (minutes % 1)*60
-        print ("{} player(s) will take the territory in {} hours {} minutes and {} seconds.".format(int(counter), int(hours // 1), int(minutes // 1), int(seconds // 1)))
+        print ("{} player(s) will take the territory in {} day(s) {} hours {} minutes and {} seconds.".format(int(counter), int(days // 1), int(hours // 1), int(minutes // 1), int(seconds // 1)))
         continue
 
 def datacollect():
@@ -26,8 +26,15 @@ def datacollect():
     global slots
     os.system('cls')
     print("")
-    print("Enter current amount of respect of the territory:")
-    points = input("<  ")
+    print("Enter the total amount of points of the territory:")
+    total = input("<  ")
+    print("Enter the amount of points of the territory that is already taken:")
+    taken = input("<  ")
+    if int(total) <= int(taken):
+        datacollect()
+    else:
+        pass
+    points = int(total) - int(taken)
     print ("Enter the amount of slots of the territory:")
     slots = input("<  ")
     execute()

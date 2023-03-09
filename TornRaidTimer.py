@@ -18,8 +18,15 @@ def execute():
         hours = (days % 1)*24
         minutes = (hours % 1)*60
         seconds = (minutes % 1)*60
-        print ("{} player(s) will take the territory in {} day(s) {} hours {} minutes and {} seconds.".format(int(counter), int(days // 1), int(hours // 1), int(minutes // 1), int(seconds // 1)))
-        continue
+        if counter == 1:
+            print (" {} player     ...   {} day(s) {} hour(s) {} minute(s) and {} second(s).".format(int(counter), int(days // 1), int(hours // 1), int(minutes // 1), int(seconds // 1)))
+            continue
+        elif counter < 10 and counter > 1:
+            print (" {} players    ...   {} day(s) {} hour(s) {} minute(s) and {} second(s).".format(int(counter), int(days // 1), int(hours // 1), int(minutes // 1), int(seconds // 1)))
+            continue
+        elif counter > 10:
+            print (" {} players   ...   {} day(s) {} hour(s) {} minute(s) and {} second(s).".format(int(counter), int(days // 1), int(hours // 1), int(minutes // 1), int(seconds // 1)))
+            continue
 
 def datacollect():
     global points
@@ -28,15 +35,23 @@ def datacollect():
     print("")
     print("Enter the total amount of points of the territory:")
     total = input("<  ")
+    if int(total) < 0:
+        datacollect()
+    else:
+        pass
     print("Enter the amount of points of the territory that is already taken:")
     taken = input("<  ")
-    if int(total) <= int(taken):
+    if int(total) <= int(taken) or int(taken) < 0:
         datacollect()
     else:
         pass
     points = int(total) - int(taken)
     print ("Enter the amount of slots of the territory:")
     slots = input("<  ")
+    if int(slots) <= 0:
+        datacollect()
+    else:
+        pass
     execute()
 
 def helpscreen():
@@ -53,7 +68,7 @@ def helpscreen():
 
 def menu():
     os.system('cls')
-    print("   ")
+    print("                                                  ")
     print(".1   START   1.")
     print(".2   HELP    2.")
     print("")

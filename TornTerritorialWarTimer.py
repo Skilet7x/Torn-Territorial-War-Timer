@@ -24,7 +24,7 @@ def execute():
         elif counter < 10 and counter > 1:
             print (" {} players    ...   {} day(s) {} hour(s) {} minute(s) and {} second(s).".format(int(counter), int(days // 1), int(hours // 1), int(minutes // 1), int(seconds // 1)))
             continue
-        elif counter > 10:
+        elif counter >= 10:
             print (" {} players   ...   {} day(s) {} hour(s) {} minute(s) and {} second(s).".format(int(counter), int(days // 1), int(hours // 1), int(minutes // 1), int(seconds // 1)))
             continue
 
